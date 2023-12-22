@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const url = "mongodb://localhost:27017/dictionary_app";
+const url =
+  "mongodb+srv://shehzaib:shehzaib@cluster0.e4tcdc7.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose.connect(
   url,
