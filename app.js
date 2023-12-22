@@ -1,6 +1,6 @@
 const express = require("express");
 require("./config/db");
-const api = require("./routes/api");
+// const api = ;
 const PORT = 4000;
 const app = express();
 const bookModel = require("./model/book_model");
@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
   res.send("Ali sher pava hai");
 });
 
-app.use(api);
+app.use("/api", require("./routes/api"));
 app.listen(PORT, () => {
   console.log("Server is running at " + PORT);
 });
