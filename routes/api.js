@@ -62,7 +62,7 @@ router.post(
     console.log(req.body);
   }
 );
-router.get("/dictionary", async (req, res) => {
+router.get("/getdictionary", async (req, res) => {
   try {
     const books = await bookModel.find({});
     res.send(books);
