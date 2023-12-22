@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 require("./config/db");
 const router = require("./routes/api");
 require("dotenv").config();
@@ -9,6 +10,7 @@ const bookModel = require("./model/book_model");
 require("dotenv").config();
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("Main app.js");
