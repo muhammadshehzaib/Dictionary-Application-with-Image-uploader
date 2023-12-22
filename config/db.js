@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
-
-require("dotenv").config();
+const url = "mongodb://localhost:27017/dictionary_app";
 
 mongoose.connect(
-  process.env.url,
+  url,
   {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   },
-  console.log(`DB running on ${process.env.url}`)
+  console.log(`DB running on ${url}`)
 );

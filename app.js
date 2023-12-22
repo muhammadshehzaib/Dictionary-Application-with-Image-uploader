@@ -2,6 +2,7 @@ const express = require("express");
 require("./config/db");
 const api = require("./routes/api");
 require("dotenv").config();
+const PORT = 4000;
 
 const app = express();
 const bookModel = require("./model/book_model");
@@ -15,5 +16,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(process.env.PORT, () => {
-  console.log("Server is running at " + process.env.PORT);
+  console.log("Server is running at " + PORT);
 });
