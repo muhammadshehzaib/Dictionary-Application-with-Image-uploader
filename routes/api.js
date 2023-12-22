@@ -86,7 +86,7 @@ router.get("/dictionary/:id", async (req, res) => {
   console.log(req.body);
 });
 
-router.get("/", (req, res) => {
+router.get("/test", (req, res) => {
   res.send("Ali sher pava hai");
 });
 
