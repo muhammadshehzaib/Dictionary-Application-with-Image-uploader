@@ -86,6 +86,10 @@ router.get("/dictionary/:id", async (req, res) => {
   console.log(req.body);
 });
 
+router.get("/", (req, res) => {
+  res.send("Ali sher pava hai");
+});
+
 router.patch("/dictionary/:id", async (req, res) => {
   const updates = Object.keys(req.body);
   const allowedUpdates = ["bookName", "authorName"];
