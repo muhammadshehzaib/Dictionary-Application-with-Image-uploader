@@ -8,6 +8,10 @@ require("dotenv").config();
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Ali sher pava hai");
+});
+
 app.use(api);
 app.listen(PORT, () => {
   console.log("Server is running at " + PORT);
