@@ -1,7 +1,7 @@
 const express = require("express");
 require("./config/db");
-// const api = ;
-const PORT = 4001;
+const api = require("./routes/api");
+const PORT = 4000;
 const app = express();
 const bookModel = require("./model/book_model");
 require("dotenv").config();
@@ -9,10 +9,10 @@ require("dotenv").config();
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Main server");
+  res.send("Main Server");
 });
 
-app.use("/api", require("./routes/api"));
+app.use(api);
 app.listen(PORT, () => {
   console.log("Server is running at " + PORT);
 });
