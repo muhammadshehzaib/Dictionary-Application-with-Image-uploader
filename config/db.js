@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
 const url =
-  "mongodb+srv://shehzaib:shehzaib@cluster0.e4tcdc7.mongodb.net/?retryWrites=true&w=majority";
-
-mongoose.connect(
-  url,
-  {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  },
-  console.log(`DB running on ${url}`)
-);
+  "mongodb+srv://shehzaib123:kb500Av4YgpG5hZk@cluster0.ybuyc.mongodb.net/?retryWrites=true&w=majority";
+mongoose
+  .connect(url)
+  .then(() => {
+    console.log("Hurrah! MongoDB connection successfully established :)");
+  })
+  .catch((err) => {
+    console.log("Sorry Bro! MongoDB is not connected :(", err);
+  });

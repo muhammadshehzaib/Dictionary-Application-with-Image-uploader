@@ -19,6 +19,6 @@ const dictionarySchema = new mongoose.Schema({
   image: { type: String },
 });
 
-const dictionaryModel = mongoose.model("dictionary", dictionarySchema);
+const dictionaryModel = new mongoose.model("dictionary", dictionarySchema);
 
 module.exports = dictionaryModel;

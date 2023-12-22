@@ -46,6 +46,7 @@ router.post(
     //   return res.send(result);
     // }
 
+    console.log(req.body);
     try {
       if (!req.file) {
         return res.status(400).json({ message: "No file uploaded" });
@@ -65,7 +66,7 @@ router.post(
 router.get("/getdictionary", async (req, res) => {
   console.log("its getting inside");
   try {
-    const books = await bookModel.find({});
+    const books = await bookModel.find();
     res.send(books);
   } catch (e) {
     res.status(500).send();
@@ -73,6 +74,7 @@ router.get("/getdictionary", async (req, res) => {
 
   console.log(req.body);
 });
+
 router.get("/dictionary/:id", async (req, res) => {
   const _id = req.params.id;
   try {
