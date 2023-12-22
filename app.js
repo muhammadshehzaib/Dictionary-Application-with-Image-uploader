@@ -9,7 +9,7 @@ require("dotenv").config();
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Ali sher pava hai");
+  res.send("Main server");
 });
 
 app.use("/api", require("./routes/api"));

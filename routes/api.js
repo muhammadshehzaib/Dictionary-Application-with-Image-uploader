@@ -63,6 +63,7 @@ router.post(
   }
 );
 router.get("/getdictionary", async (req, res) => {
+  console.log("its getting inside");
   try {
     const books = await bookModel.find({});
     res.send(books);
