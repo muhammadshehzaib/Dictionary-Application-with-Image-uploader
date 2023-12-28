@@ -33,13 +33,13 @@ const uploadToCloudinary = (buffer) => {
     console.log("error inside uploadation" + error);
   }
 };
-router.post("/users", upload.single("image"), async (req, res) => {
+router.post("/users", async (req, res) => {
   try {
-    const result = await uploadToCloudinary(req.file.buffer);
-    const result_url = result.secure_url;
+    // const result = await uploadToCloudinary(req.file.buffer);
+    // const result_url = result.secure_url;
 
-    console.log(result_url);
-    const user = new User({ ...req.body, image: result_url });
+    // console.log(result_url);, image: result_url
+    const user = new User({ ...req.body });
     await user.save();
     res.status(201).send({ user });
   } catch (err) {
