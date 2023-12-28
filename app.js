@@ -6,9 +6,13 @@ const router = require("./routes/api");
 const UserRouter = require("./routes/User_Routes");
 require("dotenv").config();
 const PORT = 4000;
+const bodyParser = require("body-parser");
 
 app.use(express.json());
 require("dotenv").config();
+
+app.use(bodyParser.json());
+
 app.use(
   cors({
     origin: ["todo-backend-umber-xi.vercel.app", "http://localhost:3000"],
