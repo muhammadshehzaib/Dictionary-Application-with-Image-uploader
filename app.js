@@ -9,9 +9,16 @@ const PORT = 4000;
 
 app.use(express.json());
 require("dotenv").config();
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "https://todo-backend-ol5tym7e7-muhammadshehzaib.vercel.app",
+      "http://localhost:3000",
+    ],
+  })
+);
 app.use((req, res, next) => {
-  const allowedOrigins = ["*"];
+  const allowedOrigins = ["https://todo-backend-umber-xi.vercel.app"];
   const origin = req.headers.origin;
 
   if (allowedOrigins.includes(origin)) {
