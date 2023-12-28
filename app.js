@@ -14,6 +14,10 @@ require("dotenv").config();
 app.use(router);
 app.use(UserRouter);
 
+app.use("/", (req, res) => {
+  res.send("Hello world");
+});
+
 app.listen(PORT, () => {
   console.log("Server is running at " + PORT);
 });
