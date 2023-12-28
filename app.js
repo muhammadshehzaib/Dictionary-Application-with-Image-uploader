@@ -11,10 +11,7 @@ app.use(express.json());
 require("dotenv").config();
 app.use(
   cors({
-    origin: [
-      "https://todo-backend-ol5tym7e7-muhammadshehzaib.vercel.app",
-      "http://localhost:3000",
-    ],
+    origin: ["todo-backend-umber-xi.vercel.app", "http://localhost:3000"],
   })
 );
 app.use((req, res, next) => {
