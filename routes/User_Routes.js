@@ -40,6 +40,7 @@ router.post("/users", async (req, res) => {
 
     // console.log(result_url);, image: result_url
     const user = new User({ ...req.body });
+    console.log(user);
     await user.save();
     res.status(201).send({ user });
   } catch (err) {
