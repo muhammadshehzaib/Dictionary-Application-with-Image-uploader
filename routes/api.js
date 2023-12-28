@@ -3,9 +3,8 @@ const Notes = require("../model/Notes_model");
 const { check, validationResult } = require("express-validator");
 const router = new express.Router();
 require("dotenv").config();
-const auth = require("../middleware/auth");
 
-router.post("/create-notes", auth, async (req, res) => {
+router.post("/create-notes", async (req, res) => {
   try {
     const notesData = req.body;
     const createdNotes = new Notes({
@@ -33,7 +32,7 @@ router.post("/create-notes", auth, async (req, res) => {
   }
 });
 
-router.get("/get-all-notes", auth, async (req, res) => {
+router.get("/get-all-notes", async (req, res) => {
   try {
     const { Priority } = req.query;
     const filter = Priority ? { Priority } : {};
@@ -54,7 +53,7 @@ router.get("/get-all-notes", auth, async (req, res) => {
   }
 });
 
-router.get("/notes/:todoId", auth, async (req, res) => {
+router.get("/notes/:todoId", async (req, res) => {
   try {
     const todoId = req.params.todoId;
 
@@ -71,7 +70,7 @@ router.get("/notes/:todoId", auth, async (req, res) => {
   }
 });
 
-router.put("/updatenotes/:todoId", auth, async (req, res) => {
+router.put("/updatenotes/:todoId", async (req, res) => {
   try {
     const todoId = req.params.todoId;
     const { name, Completed, Priority, categories, reminder, dueDates } =
@@ -106,7 +105,7 @@ router.put("/updatenotes/:todoId", auth, async (req, res) => {
   }
 });
 
-router.delete("/deletenotes", auth, async (req, res) => {
+router.delete("/deletenotes", async (req, res) => {
   try {
     const notesId = req.body.id;
     const deletedNotes = await Notes.findByIdAndDelete(notesId);
@@ -133,7 +132,7 @@ router.delete("/deletenotes", auth, async (req, res) => {
 });
 
 // * Delete all Notes documents
-router.delete("/delete-all-notes", auth, async (req, res) => {
+router.delete("/delete-all-notes", async (req, res) => {
   try {
     const result = await Notes.deleteMany({});
     if (result.deletedCount === 0) {
@@ -159,7 +158,7 @@ router.delete("/delete-all-notes", auth, async (req, res) => {
   }
 });
 
-router.delete("/clear-complete", auth, async (req, res) => {
+router.delete("/clear-complete", async (req, res) => {
   try {
     const deletedNotes = await Notes.deleteMany({ Completed: true });
 
@@ -184,7 +183,7 @@ router.delete("/clear-complete", auth, async (req, res) => {
   }
 });
 
-router.get("/get-summary", auth, async (req, res) => {
+router.get("/get-summary", async (req, res) => {
   try {
     const userId = req.query.id;
 
