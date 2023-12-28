@@ -10,7 +10,8 @@ const PORT = 4000;
 app.use(express.json());
 require("dotenv").config();
 const corsOptions = {
-  origin: "https://todo-backend-bxlaemgc2-muhammadshehzaib.vercel.app",
+  origin:
+    "https://dictionary-application-with-image-uploader-axw8u8mmp.vercel.app/",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
   optionsSuccessStatus: 204,
