@@ -54,11 +54,6 @@ router.post("/users/login", async (req, res) => {
     );
     const token = await user.generateAuthToken();
     res.send({ user, token });
-    // res.cookie("token", token, {
-    //   maxAge: 7 * 24 * 60 * 60 * 1000, // 2 hours
-    //   // secure: false, // set to true if you're using https
-    //   // httpOnly: true,
-    // });
   } catch (error) {
     res.status(400).send(error.message);
   }
