@@ -35,16 +35,12 @@ const uploadToCloudinary = (buffer) => {
 };
 router.post("/users", async (req, res) => {
   try {
-    // const result = await uploadToCloudinary(req.file.buffer);
-    // const result_url = result.secure_url;
-
-    // console.log(result_url);, image: result_url
-    const user = new User({ ...req.body });
-    console.log(user);
+    const user = new User(req.body); // Assuming req.body contains the necessary user data
     await user.save();
     res.status(201).send({ user });
   } catch (err) {
-    res.status(400).send(err.message);
+    console.error(err); // Log the error for debugging purposes
+    res.status(400).send({ error: "Failed to create user." });
   }
 });
 router.post("/users/login", async (req, res) => {
