@@ -11,7 +11,7 @@ app.use(express.json());
 require("dotenv").config();
 app.use(cors());
 app.use((req, res, next) => {
-  const allowedOrigins = ["https://todo-backend-umber-xi.vercel.app"];
+  const allowedOrigins = ["*"];
   const origin = req.headers.origin;
 
   if (allowedOrigins.includes(origin)) {
